@@ -59,7 +59,7 @@ class MovieResponse {
       this.reservationRate});
 
   // map 구조에서 새로운 MovieResponse 객체를 생성
-  MovieResponse.fromJson(Map<String, dynamic> json) {
+  MovieResponse.fromJson(dynamic json) {
     actor = json['actor'] as String;
     date = json['date'] as String;
     director = json['director'] as String;

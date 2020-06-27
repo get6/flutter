@@ -1,10 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'model/response/movie_response.dart';
-
 // 3-1. 상세화면 - 라이브러리 임포트
 import 'package:http/http.dart' as http;
+import 'model/response/movie_response.dart';
 
 class DetailPage extends StatefulWidget {
   final String movieId;
@@ -19,8 +19,9 @@ class DetailPage extends StatefulWidget {
 
 class _DetailState extends State<DetailPage> {
   String movieId;
-  final String _movieTitle = '상세화면';
+  String _movieTitle = '';
   MovieResponse _movieResponse;
+  dynamic _commentsResponse;
 
   _DetailState({this.movieId});
 
@@ -34,6 +35,38 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
+  // 3-1. 상세화면 - initState() 작성
+  @override
+  void initState() {
+    super.initState();
+    _requestMovie();
+  }
+
+  // 3-1. 상세화면 - 영화 상세 데이터 받아오기1
+  void _requestMovie() async {
+    setState(() {
+      _movieResponse = null;
+      // 3-2. 상세화면 - 한줄평 변수 선언
+      _commentsResponse = null;
+    });
+    final MovieResponse movieResponse = await _getMovieResponse();
+    setState(() {
+      _movieResponse = movieResponse;
+      _movieTitle = movieResponse.title;
+    });
+  }
+
+  Future<MovieResponse> _getMovieResponse() async {
+    final response = await http
+        .get('http://padakpadak.run.goorm.io/movie?id=${widget.movieId}');
+    if (response.statusCode == 200) {
+      final dynamic jsonData = json.decode(response.body);
+      final MovieResponse movieResponse = MovieResponse.fromJson(jsonData);
+      return movieResponse;
+    }
+    return null;
+  }
+
   Widget _buildContents() {
     // 3-1. 상세화면 - 영화 상세 정보 데이터가 비었을 경우에 대한 분기 처리
     Widget contentsWidget;
@@ -43,7 +76,7 @@ class _DetailState extends State<DetailPage> {
       );
     } else {
       contentsWidget = SingleChildScrollView(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: <Widget>[
             _buildMovieSummary(),
@@ -150,13 +183,17 @@ class _DetailState extends State<DetailPage> {
   }
 
   Widget _buildAudience() {
-    final numberFormatter = NumberFormat.decimalPattern();
+    final NumberFormat numberFormatter = NumberFormat.decimalPattern();
     return Column(
       children: <Widget>[
         Text(
           '누적관객수',
           style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
         ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(numberFormatter.format(_movieResponse.audience)),
       ],
     );
   }
@@ -169,9 +206,92 @@ class _DetailState extends State<DetailPage> {
     );
   }
 
-  Widget _buildMovieSynopsis() {}
+  Widget _buildMovieSynopsis() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          width: double.infinity,
+          height: 10,
+          color: Colors.grey.shade400,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: Text(
+            '줄거리',
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 16, top: 10, bottom: 5),
+          child: Text(_movieResponse.synopsis),
+        )
+      ],
+    );
+  }
 
-  Widget _buildMovieCast() {}
+  Widget _buildMovieCast() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          width: double.infinity,
+          height: 10,
+          color: Colors.grey.shade400,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: Text(
+            '감독/출연',
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 16, top: 10, bottom: 5),
+          child: Column(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Text(
+                    '감독',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(_movieResponse.director),
+                ],
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: <Widget>[
+                  Text(
+                    '감독',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Expanded(
+                    child: Text(_movieResponse.actor),
+                  )
+                ],
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 
-  Widget _buildComment() {}
+  Widget _buildComment() {
+    return Text('코멘트');
+  }
 }
