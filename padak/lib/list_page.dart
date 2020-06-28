@@ -5,9 +5,9 @@ import 'detail_page.dart';
 import 'model/response/movies_response.dart';
 
 class ListPage extends StatelessWidget {
-  List<Movie> movies;
-
   ListPage({this.movies});
+
+  List<Movie> movies;
 
   @override
   Widget build(BuildContext context) {

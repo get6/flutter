@@ -1,4 +1,39 @@
 class MovieResponse {
+  // 생성자
+  MovieResponse(
+      {this.actor,
+      this.date,
+      this.director,
+      this.audience,
+      this.userRating,
+      this.id,
+      this.reservationGrade,
+      this.grade,
+      this.title,
+      this.genre,
+      this.image,
+      this.duration,
+      this.synopsis,
+      this.reservationRate});
+
+  // map 구조에서 새로운 MovieResponse 객체를 생성
+  MovieResponse.fromJson(dynamic json) {
+    actor = json['actor'] as String;
+    date = json['date'] as String;
+    director = json['director'] as String;
+    audience = json['audience'] as int;
+    userRating = json['user_rating'] as int;
+    id = json['id'] as String;
+    reservationGrade = json['reservation_grade'] as int;
+    grade = json['grade'] as int;
+    title = json['title'] as String;
+    genre = json['genre'] as String;
+    image = json['image'] as String;
+    duration = json['duration'] as int;
+    synopsis = json['synopsis'] as String;
+    reservationRate = json['reservation_rate'] as double;
+  }
+
   // 배우진
   String actor;
 
@@ -40,41 +75,6 @@ class MovieResponse {
 
   // 예매 순위
   int reservationGrade;
-
-  // 생성자
-  MovieResponse(
-      {this.actor,
-      this.date,
-      this.director,
-      this.audience,
-      this.userRating,
-      this.id,
-      this.reservationGrade,
-      this.grade,
-      this.title,
-      this.genre,
-      this.image,
-      this.duration,
-      this.synopsis,
-      this.reservationRate});
-
-  // map 구조에서 새로운 MovieResponse 객체를 생성
-  MovieResponse.fromJson(dynamic json) {
-    actor = json['actor'] as String;
-    date = json['date'] as String;
-    director = json['director'] as String;
-    audience = json['audience'] as int;
-    userRating = json['user_rating'] as int;
-    id = json['id'] as String;
-    reservationGrade = json['reservation_grade'] as int;
-    grade = json['grade'] as int;
-    title = json['title'] as String;
-    genre = json['genre'] as String;
-    image = json['image'] as String;
-    duration = json['duration'] as int;
-    synopsis = json['synopsis'] as String;
-    reservationRate = json['reservation_rate'] as double;
-  }
 
   // MovieResponse 객체를 map 구조로 변환
   Map<String, dynamic> toMap() {

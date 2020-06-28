@@ -62,20 +62,20 @@ class _MainPageState extends State<MainPage> {
   }
 
   Widget _buildPopupMenuButton() {
-    return PopupMenuButton(
+    return PopupMenuButton<int>(
       icon: Icon(Icons.sort),
       onSelected: _onSortMethodTab,
       itemBuilder: (BuildContext context) {
         return [
-          const PopupMenuItem(
+          const PopupMenuItem<int>(
             value: 0,
             child: Text('예매율순'),
           ),
-          const PopupMenuItem(
+          const PopupMenuItem<int>(
             value: 0,
             child: Text('큐레이션'),
           ),
-          const PopupMenuItem(
+          const PopupMenuItem<int>(
             value: 0,
             child: Text('최신순'),
           ),
@@ -142,7 +142,7 @@ class _MainPageState extends State<MainPage> {
 
     // 2-3. 메인화면 - moviesResponse가 비었을 경우에 대한 분기 처리
     if (moviesResponse == null) {
-      contentsWidget = Center(
+      contentsWidget = const Center(
         child: CircularProgressIndicator(),
       );
     } else {

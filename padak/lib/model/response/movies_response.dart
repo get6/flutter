@@ -1,8 +1,4 @@
-
 class MoviesResponse {
-  int orderType;
-  List<Movie> movies;
-
   MoviesResponse({
     this.orderType,
     this.movies,
@@ -11,33 +7,28 @@ class MoviesResponse {
   // map 구조에서 새로운 MoviesResponse 객체를 생성
   MoviesResponse.fromJson(dynamic json) {
     if (json['movies'] != null) {
-      movies = [];
+      movies = <Movie>[];
       json['movies'].forEach((dynamic movie) {
         movies.add(Movie.fromJson(movie));
       });
     }
     orderType = json['order_type'] as int;
   }
+
+  int orderType;
+  List<Movie> movies;
 }
 
 class Movie {
-  String title;
-  int userRating;
-  int grade;
-  int reservationGrade;
-  String id;
-  String date;
-  String thumb;
-  double reservationRate;
-
-  Movie({this.title,
-    this.userRating,
-    this.grade,
-    this.reservationGrade,
-    this.id,
-    this.date,
-    this.thumb,
-    this.reservationRate});
+  Movie(
+      {this.title,
+      this.userRating,
+      this.grade,
+      this.reservationGrade,
+      this.id,
+      this.date,
+      this.thumb,
+      this.reservationRate});
 
   Movie.fromJson(dynamic json) {
     title = json['title'] as String;
@@ -49,6 +40,15 @@ class Movie {
     thumb = json['thumb'] as String;
     reservationRate = json['reservation_rate'] as double;
   }
+
+  String title;
+  int userRating;
+  int grade;
+  int reservationGrade;
+  String id;
+  String date;
+  String thumb;
+  double reservationRate;
 
   Map<String, dynamic> toMap() {
     final Map<String, dynamic> map = <String, dynamic>{};

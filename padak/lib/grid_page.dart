@@ -3,25 +3,26 @@ import 'package:flutter/material.dart';
 import 'model/response/movies_response.dart';
 
 class GridPage extends StatelessWidget {
-  List<Movie> movies;
-
   GridPage({this.movies});
+
+  List<Movie> movies;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, childAspectRatio: 9 / 16),
-      itemBuilder: (BuildContext context, int index) => _buildGridItem(context: context, index: index),
+      itemBuilder: (BuildContext context, int index) =>
+          _buildGridItem(context: context, index: index),
     );
   }
 
   Widget _buildGridItem({BuildContext context, @required int index}) {
-    Movie movie = movies[index];
+    final Movie movie = movies[index];
 
     return InkWell(
       child: Container(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -35,7 +36,7 @@ class GridPage extends StatelessWidget {
                     height: double.infinity,
                   ),
                   Container(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: _buildGradeImage(movie.grade),
                   ),
                 ],
@@ -61,7 +62,7 @@ class GridPage extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Text('${movie.date}')
+            Text('${movie.date}'),
           ],
         ),
       ),

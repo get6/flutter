@@ -1,15 +1,19 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 // 3-1. 상세화면 - 라이브러리 임포트
 import 'package:http/http.dart' as http;
+import 'package:padak/model/response/comments_response.dart';
+import 'package:padak/comment_page.dart';
 import 'model/response/movie_response.dart';
+import 'model/widget/star_rating_bar.dart';
 
 class DetailPage extends StatefulWidget {
-  final String movieId;
+  const DetailPage({this.movieId});
 
-  DetailPage({this.movieId});
+  final String movieId;
 
   @override
   State<StatefulWidget> createState() {
@@ -18,12 +22,12 @@ class DetailPage extends StatefulWidget {
 }
 
 class _DetailState extends State<DetailPage> {
+  _DetailState({this.movieId});
+
   String movieId;
   String _movieTitle = '';
   MovieResponse _movieResponse;
-  dynamic _commentsResponse;
-
-  _DetailState({this.movieId});
+  CommentsResponse _commentsResponse;
 
   @override
   Widget build(BuildContext context) {
@@ -50,14 +54,18 @@ class _DetailState extends State<DetailPage> {
       _commentsResponse = null;
     });
     final MovieResponse movieResponse = await _getMovieResponse();
+    // 3-2. 상세화면 - 한줄평 목록 요청
+    final commentsResponse = await _getCommentsResponse();
     setState(() {
+      // 3-2. 상세화면 - 한줄평 목록 갱신
+      _commentsResponse = commentsResponse;
       _movieResponse = movieResponse;
       _movieTitle = movieResponse.title;
     });
   }
 
   Future<MovieResponse> _getMovieResponse() async {
-    final response = await http
+    final http.Response response = await http
         .get('http://padakpadak.run.goorm.io/movie?id=${widget.movieId}');
     if (response.statusCode == 200) {
       final dynamic jsonData = json.decode(response.body);
@@ -88,6 +96,16 @@ class _DetailState extends State<DetailPage> {
       );
     }
     return contentsWidget;
+  }
+
+  Future<CommentsResponse> _getCommentsResponse() async {
+    final response = await http.get('http://padakpadak.run.goorm.io/comments?movie_id=${widget.movieId}');
+    if(response.statusCode == 200) {
+      final dynamic jsonData = json.decode(response.body);
+      final CommentsResponse commentsResponse = CommentsResponse.fromJson(jsonData);
+      return commentsResponse;
+    }
+    return null;
   }
 
   Widget _buildMovieSummary() {
@@ -292,6 +310,104 @@ class _DetailState extends State<DetailPage> {
   }
 
   Widget _buildComment() {
-    return Text('코멘트');
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          width: double.infinity,
+          height: 10,
+          color: Colors.grey.shade400,
+        ),
+        Container(
+          margin: const EdgeInsets.only(left: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                '한줄평',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              IconButton(
+                  icon: Icon(Icons.create),
+                  onPressed: () => _presentCommentPage(context)),
+            ],
+          ),
+        ),
+        _buildCommentListView()
+      ],
+    );
+  }
+
+  Widget _buildCommentListView() {
+    return ListView.builder(
+        shrinkWrap: true,
+        primary: false,
+        padding: const EdgeInsets.all(10),
+        itemCount: _commentsResponse.comments.length,
+        itemBuilder: (_, int index) =>
+            _buildItem(comment: _commentsResponse.comments[index]));
+  }
+
+  Widget _buildItem({@required Comment comment}) {
+    return Container(
+      margin: const EdgeInsets.all(10),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Icon(
+            Icons.person_pin,
+            size: 50,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Text(comment.writer),
+                      const SizedBox(
+                        width: 5,
+                      ),
+                      StarRatingBar(
+                        rating: comment.rating,
+                        isUserInteractionEnabled: false,
+                        size: 20,
+                      ),
+                    ],
+                  ),
+                  Text(_convertTimeStampToDataTime(comment.timestamp)),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(comment.contents),
+                ],
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  String _convertTimeStampToDataTime(int timestamp) {
+    final DateFormat dateFormatter = DateFormat('yyyy-MM-dd HH:mm:ss');
+    return dateFormatter
+        .format(DateTime.fromMillisecondsSinceEpoch(timestamp * 1000));
+  }
+
+  void _presentCommentPage(BuildContext context) {
+    Navigator.of(context).push<dynamic>(
+      MaterialPageRoute<dynamic>(
+        builder: (BuildContext context) => CommentPage(
+          movieTitle: _movieResponse.title,
+          movieId: _movieResponse.id,
+        ),
+      ),
+    );
   }
 }
