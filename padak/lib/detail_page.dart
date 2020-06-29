@@ -380,10 +380,15 @@ class _DetailState extends State<DetailPage> {
                       ),
                     ],
                   ),
-                  Text(_convertTimeStampToDataTime(comment.timestamp)),
-                  const SizedBox(
-                    height: 5,
-                  ),
+
+                ],
+              ),
+              Text(_convertTimeStampToDataTime(comment.timestamp)),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: <Widget>[
                   Text(comment.contents),
                 ],
               )

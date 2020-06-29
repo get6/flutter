@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:padak/model/response/comments_response.dart';
 import 'package:http/http.dart' as http;
+import 'package:padak/model/widget/star_rating_bar.dart';
 
 class CommentPage extends StatefulWidget {
   const CommentPage({this.movieTitle, this.movieId});
@@ -24,8 +25,8 @@ class CommentPageState extends State<CommentPage> {
 
   final GlobalKey<ScaffoldState> scaffoldState = GlobalKey<ScaffoldState>();
   int _rating = 0;
-  String _writer = "";
-  String _contents = "";
+  String _writer = '';
+  String _contents = '';
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class CommentPageState extends State<CommentPage> {
       body: WillPopScope(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
@@ -116,13 +117,66 @@ class CommentPageState extends State<CommentPage> {
     );
   }
 
-  Widget _buildUserRating() {}
+  Widget _buildUserRating() {
+    return Column(
+      children: <Widget>[
+        StarRatingBar(
+          onRatingChanged: (int rating) {
+            setState(() {
+              _rating = rating;
+            });
+          },
+        ),
+        Text((_rating / 2.0).toString())
+      ],
+    );
+  }
 
-  Widget _buildHorizontalDivider() {}
+  Widget _buildHorizontalDivider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 14, horizontal: 4),
+      width: double.infinity,
+      height: 10,
+      color: Colors.grey.shade400,
+    );
+  }
 
-  Widget _buildNickNameInputForm() {}
+  Widget _buildNickNameInputForm() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      child: TextField(
+        onChanged: (String text) => _writer = text,
+        maxLines: 1,
+        maxLength: 20,
+        decoration: InputDecoration(
+            hintText: '닉네임을 입력해주세요',
+            fillColor: Colors.white,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+              borderSide: const BorderSide(),
+            )),
+      ),
+    );
+  }
 
-  Widget _buildCommentInputForm() {}
+  Widget _buildCommentInputForm() {
+    return Container(
+      margin: const EdgeInsets.only(left: 10, right: 10, top: 20, bottom: 10),
+      child: TextField(
+        onChanged: (String text) => _contents = text,
+        maxLines: null,
+        maxLength: 100,
+        decoration: InputDecoration(
+          hintText: '한줄평을 작성해주세요',
+          fillColor: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: const BorderSide(),
+          ),
+        ),
+      ),
+    );
+  }
 
   void _showSnackBar(String text) {
     final SnackBar snackBar = SnackBar(

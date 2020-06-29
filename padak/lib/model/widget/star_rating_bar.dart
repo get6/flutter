@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class StarRatingBar extends StatefulWidget {
   const StarRatingBar({
-    this.size,
-    this.rating,
+    this.size = 40,
+    this.rating = 0,
     this.onRatingChanged,
     this.isUserInteractionEnabled = true,
   });
@@ -113,6 +113,8 @@ class _StarRatingBarState extends State<StarRatingBar> {
       stars[2] = fullStar;
       stars[3] = fullStar;
       stars[4] = fullStar;
+    } else {
+      stars[0] = emptyStar;
     }
     return stars;
   }
