@@ -44,14 +44,25 @@ class _MyStatefulWidgetState extends State<_MyStatefulWidget> {
   Widget build(BuildContext context) {
     print('build() 호출됨');
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        RaisedButton(child: Text('버튼을 누르세요'), onPressed: _onClick),
+        RaisedButton(
+          child: Text('버튼을 누르세요'),
+          onPressed: _onClick,
+        ),
         Row(
           children: <Widget>[
             Text('버튼 상태:'),
             Text(_buttonState),
           ],
-        )
+        ),
+        RaisedButton(
+          child: Text('둥근 버튼'),
+          onPressed: _onClick,
+          shape: RoundedRectangleBorder(
+           borderRadius: new BorderRadius.circular(30.0) 
+          ),
+        ),
       ],
     );
   }
