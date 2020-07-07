@@ -9,8 +9,21 @@ const String _defaultStation = '광화문';
 
 const int STATUS_OK = 200;
 
-class MainPage extends StatefulWidget {
+void main() => runApp(SubwayDemo());
 
+class SubwayDemo extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: '지하철 실시간 정보',
+      debugShowCheckedModeBanner: false,
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatefulWidget {
   @override
   State createState() => MainPageState();
 }
@@ -22,17 +35,21 @@ class SubwayArrival {
   String _subwayHeading;
   String _arvlMsg2;
 
-  SubwayArrival({rowNum, subwayId, trainLineNm, subwayHeading, arvlMsg2});
+  SubwayArrival(this._rowNum, this._subwayId, this._trainLineNm,
+      this._subwayHeading, this._arvlMsg2);
 
   int get rowNum => _rowNum;
-  String get subwayId => subwayId;
+
+  String get subwayId => _subwayId;
+
   String get trainLineMn => _trainLineNm;
+
   String get subwayHeading => _subwayHeading;
+
   String get arvlMsg2 => _arvlMsg2;
 }
 
 class MainPageState extends State<MainPage> {
-
   int _rowNum;
   String _subwayId;
   String _trainLineNm;
@@ -74,11 +91,11 @@ class MainPageState extends State<MainPage> {
     List<SubwayArrival> list = List.generate(cnt, (int i) {
       Map<String, dynamic> item = realtimeArrivalList[i];
       return SubwayArrival(
-        rowNum: item['rowNum'],
-        subwayId: item['subwayId'],
-        trainLineNm: item['trainLineNm'],
-        subwayHeading: item['subwayHeading'],
-        arvlMsg2: item['arvlMsg2'],
+        item['rowNum'],
+        item['subwayId'],
+        item['trainLineNm'],
+        item['subwayHeading'],
+        item['arvlMsg2'],
       );
     });
 
@@ -92,7 +109,6 @@ class MainPageState extends State<MainPage> {
     });
   }
 
-
   @override
   void initState() {
     super.initState();
@@ -101,15 +117,22 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
-        Text('rowNum $_rowNum'),
-        Text('subwayId $_subwayId'),
-        Text('trainLineNm $_trainLineNm'),
-        Text('subwayHeading $_subwayHeading'),
-        Text('arvlMsg2 $_arvlMsg2'),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('지하철 실시간 정보'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Text('rowNum $_rowNum'),
+            Text('subwayId $_subwayId'),
+            Text('trainLineNm $_trainLineNm'),
+            Text('subwayHeading $_subwayHeading'),
+            Text('arvlMsg2 $_arvlMsg2'),
+          ],
+        ),
+      ),
     );
   }
 }
