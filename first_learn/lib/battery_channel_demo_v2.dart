@@ -20,13 +20,10 @@ class BatteryPageState extends State<BatteryPage> {
 
     String _newText;
     try {
-      final int result = await batteryChannel.invokeListMethod(METHOD_BATTERY) as int;
+      final int result = await batteryChannel.invokeMethod(METHOD_BATTERY);
       _newText = '배터리 잔량: $result';
     } on PlatformException {
       _newText = '배터리 잔량을 알 수 없습니다.';
-    } catch (e) {
-      _newText = '배터리 잔량을 알 수 없습니다.';
-      print(e);
     }
 
     setState(() {
