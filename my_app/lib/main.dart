@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/FirstStatefulPage.dart';
+
+import 'SecondStatefulPage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MyApp2());
 }
 
 class MyApp extends StatelessWidget {
@@ -14,6 +17,23 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
+    );
+  }
+}
+
+class MyApp2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: FirstStatefulPage(),
+      routes: {
+        '/first' : (BuildContext context) => FirstStatefulPage(),
+        '/second' : (BuildContext context) => const SecondStatefulPage(),
+      },
     );
   }
 }
