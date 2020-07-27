@@ -1,57 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb58f08c-af43-4c31-ab1d-b748fe045063" name="Default Changelist" comment="" />
+    <list default="true" id="527d88fa-7810-495a-9866-edcb07fae04e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\user\StudioProjects\flutter\payne\.idea" />
-      </set>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
     </option>
   </component>
-  <component name="ProjectId" id="1dsOVupbglTU5xO3qHvs2EOLq6B" />
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="get6 &lt;ittae.com@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1efuPEU8wLGzOXo40kisSOZWJsN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="dart.analysis.tool.window.force.activate" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/assets/images" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/assets/images" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bb58f08c-af43-4c31-ab1d-b748fe045063" name="Default Changelist" comment="" />
-      <created>1593210360333</created>
+      <changelist id="527d88fa-7810-495a-9866-edcb07fae04e" name="Default Changelist" comment="" />
+      <created>1594724941470</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1593210360333</updated>
+      <updated>1594724941470</updated>
     </task>
+    <task id="LOCAL-00001" summary="add payne tutorial">
+      <created>1594730992246</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594730992246</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add payne tutorial" />
+    <option name="LAST_COMMIT_MESSAGE" value="add payne tutorial" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="396" y="98" key="FileChooserDialogImpl" timestamp="1593216349251">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="2691" y="2" key="CommitChangelistDialog2" timestamp="1594730992127">
+      <screen x="1792" y="-320" width="2560" height="1440" />
     </state>
-    <state x="396" y="98" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1593216349251" />
-    <state x="305" y="160" key="com.intellij.ide.util.TipDialog" timestamp="1593216307163">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="2691" y="2" key="CommitChangelistDialog2/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1594730992127" />
+    <state width="2518" height="421" key="GridCell.Tab.0.bottom" timestamp="1595418334841">
+      <screen x="1792" y="-320" width="2560" height="1440" />
     </state>
-    <state x="305" y="160" key="com.intellij.ide.util.TipDialog/0.0.1536.864@0.0.1536.864" timestamp="1593216307161" />
+    <state width="2518" height="379" key="GridCell.Tab.0.bottom/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411913809" />
+    <state width="2518" height="421" key="GridCell.Tab.0.bottom/1792.-320.2560.1440/0.23.1792.1097@1792.-320.2560.1440" timestamp="1595418334841" />
+    <state width="2518" height="421" key="GridCell.Tab.0.center" timestamp="1595418334840">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="379" key="GridCell.Tab.0.center/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411913807" />
+    <state width="2518" height="421" key="GridCell.Tab.0.center/1792.-320.2560.1440/0.23.1792.1097@1792.-320.2560.1440" timestamp="1595418334840" />
+    <state width="2518" height="421" key="GridCell.Tab.0.left" timestamp="1595418334839">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="379" key="GridCell.Tab.0.left/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411913806" />
+    <state width="2518" height="421" key="GridCell.Tab.0.left/1792.-320.2560.1440/0.23.1792.1097@1792.-320.2560.1440" timestamp="1595418334839" />
+    <state width="2518" height="421" key="GridCell.Tab.0.right" timestamp="1595418334840">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state width="2518" height="379" key="GridCell.Tab.0.right/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411913808" />
+    <state width="2518" height="421" key="GridCell.Tab.0.right/1792.-320.2560.1440/0.23.1792.1097@1792.-320.2560.1440" timestamp="1595418334840" />
+    <state x="2359" y="-75" key="SettingsEditor" timestamp="1595411844868">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state x="397" y="210" key="SettingsEditor/0.23.1792.1097@0.23.1792.1097" timestamp="1594725051633" />
+    <state x="2359" y="-75" key="SettingsEditor/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411844868" />
+    <state x="2672" y="140" key="Vcs.Push.Dialog.v2" timestamp="1594731001128">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state x="2672" y="140" key="Vcs.Push.Dialog.v2/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1594731001128" />
+    <state x="2742" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1595411826677">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state x="2742" y="232" key="com.intellij.ide.util.TipDialog/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595411826677" />
+    <state x="559" y="266" key="search.everywhere.popup" timestamp="1594725202358">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="559" y="266" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1594725202358" />
   </component>
 </project>
