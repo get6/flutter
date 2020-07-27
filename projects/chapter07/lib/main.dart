@@ -243,7 +243,20 @@ class Page1 extends StatelessWidget {
 
   // 하단
   Widget _buildBottom() {
-    return Text('Bottom');
+    final items = List.generate(10, (i) {
+      return ListTile(
+        leading: Icon(
+          Icons.notifications_none,
+        ),
+        title: Text('[이벤트] 이것은 공지사항압니다.'),
+      );
+    });
+
+    return ListView(
+      physics: NeverScrollableScrollPhysics(), // 이 리스트의 스크롤 동작 금지
+      shrinkWrap: true, // 이 리스트가 다른 스크롤 객체 안에 있다면 true로 설정해야 함
+      children: items,
+    );
   }
 }
 
