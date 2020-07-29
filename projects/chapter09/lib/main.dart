@@ -48,12 +48,20 @@ class _StopWatchPageState extends State<StopWatchPage> {
           height: 50.0,
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => setState(() {
+          _clickButton();
+        }),
+        child: _isRunning ? Icon(Icons.pause) : Icon(Icons.play_arrow),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   // 내용 부분
   Widget _buildBody() {
+    var sec = _time ~/ 100;
+    var hundredth = '${_time % 100}'.padLeft(2, '0'); // 1/100초
     return Center(
       child: Padding(
         padding: const EdgeInsets.only(
@@ -69,19 +77,19 @@ class _StopWatchPageState extends State<StopWatchPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Text(
-                      '0',
+                      '$sec',
                       style: TextStyle(
                         fontSize: 50.0,
                       ),
                     ),
-                    Text('00'),
+                    Text('$hundredth'),
                   ],
                 ),
                 Container(
                   width: 100,
                   height: 200,
                   child: ListView(
-                    children: <Widget>[],
+                    children: _lapTimes.map((time) => Text(time)).toList(),
                   ),
                 )
               ],
@@ -91,7 +99,7 @@ class _StopWatchPageState extends State<StopWatchPage> {
               bottom: 10,
               child: FloatingActionButton(
                 backgroundColor: Colors.deepOrange,
-                onPressed: () {},
+                onPressed: _reset,
                 child: Icon(
                   Icons.rotate_left,
                 ),
@@ -101,7 +109,11 @@ class _StopWatchPageState extends State<StopWatchPage> {
               right: 10,
               bottom: 10,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    _recordLapTime('$sec.$hundredth');
+                  });
+                },
                 child: Text('랩타임'),
               ),
             ),
@@ -122,7 +134,30 @@ class _StopWatchPageState extends State<StopWatchPage> {
     }
   }
 
-  void _start() {}
+  void _start() {
+    _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+      setState(() {
+        _time++;
+      });
+    });
+  }
 
-  void _pause() {}
+  void _pause() {
+    _timer?.cancel();
+  }
+
+  // 초기화
+  void _reset() {
+    setState(() {
+      _isRunning = false;
+      _timer?.cancel();
+      _lapTimes.clear();
+      _time = 0;
+    });
+  }
+
+  // 랩타입 기록
+  void _recordLapTime(String time) {
+    _lapTimes.insert(0, '${_lapTimes.length + 1}등 $time');
+  }
 }
