@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "503937382058",
+    "firebase_url": "https://my-todo-list-fd972.firebaseio.com",
+    "project_id": "my-todo-list-fd972",
+    "storage_bucket": "my-todo-list-fd972.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503937382058:android:aafd3cfee602b695a002d3",
+        "android_client_info": {
+          "package_name": "com.ittae.test10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503937382058-g8ol67kghffll8cmmrn54ivgq5ek91j9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1hXzU2ApSyGubpr7npv6kTw4OPhMjO8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503937382058-g8ol67kghffll8cmmrn54ivgq5ek91j9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
