@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="172132ee-4192-49d0-9b0a-abc3480c1023" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/payne/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/payne/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="get6 &lt;ittae.com@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ecu5SRXV6I9w29u7I6LwM6cQZN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="172132ee-4192-49d0-9b0a-abc3480c1023" name="Default Changelist" comment="" />
+      <created>1594633018820</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594633018820</updated>
+    </task>
+    <task id="LOCAL-00001" summary="readme 편집">
+      <created>1594633166207</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594633166207</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="readme 편집" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme 편집" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2691" y="14" key="CommitChangelistDialog2" timestamp="1594633166138">
+      <screen x="1792" y="-297" width="2560" height="1417" />
+    </state>
+    <state x="2691" y="14" key="CommitChangelistDialog2/1792.-297.2560.1417/0.23.1792.1097@1792.-297.2560.1417" timestamp="1594633166138" />
+    <state x="2672" y="151" key="Vcs.Push.Dialog.v2" timestamp="1594633171160">
+      <screen x="1792" y="-297" width="2560" height="1417" />
+    </state>
+    <state x="2672" y="151" key="Vcs.Push.Dialog.v2/1792.-297.2560.1417/0.23.1792.1097@1792.-297.2560.1417" timestamp="1594633171160" />
+    <state x="1792" y="244" key="com.intellij.ide.util.TipDialog" timestamp="1595820750006">
+      <screen x="1792" y="-297" width="2560" height="1417" />
+    </state>
+    <state x="1792" y="244" key="com.intellij.ide.util.TipDialog/1792.-297.2560.1417/0.23.1792.1097@1792.-297.2560.1417" timestamp="1595820750006" />
+    <state x="2787" y="198" key="git4idea.merge.GitPullDialog" timestamp="1595820812704">
+      <screen x="1792" y="-320" width="2560" height="1440" />
+    </state>
+    <state x="2787" y="198" key="git4idea.merge.GitPullDialog/1792.-320.2560.1440/0.0.1792.1120@1792.-320.2560.1440" timestamp="1595820812704" />
+  </component>
+</project>
