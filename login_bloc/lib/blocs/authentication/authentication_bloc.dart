@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'authentication_event.dart';
 import 'authentication_state.dart';
@@ -12,7 +14,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   AuthenticationState get initialState => AuthenticationInitial();
 
   @override
-  Stream<AuthenticationState> mapEventToState(AuthenticationEvent event) {
+  Stream<AuthenticationState> mapEventToState(AuthenticationEvent event) async* {
     if(event is AppLoaded) {
       yield* _mapAppLoadedToState(event);
     }
