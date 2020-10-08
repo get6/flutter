@@ -33,7 +33,6 @@ class LoginPage extends StatelessWidget {
                 ),
               );
             }
-            authBloc.close();
             return Center(
               child: CircularProgressIndicator(
                 strokeWidth: 2.0,

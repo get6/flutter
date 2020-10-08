@@ -31,7 +31,6 @@ class HomePage extends StatelessWidget {
               FlatButton(
                 onPressed: () {
                   authBloc.add(UserLoggedOut());
-                  authBloc.close();
                 },
                 child: Text('Logout'),
               ),
